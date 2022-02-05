@@ -25,7 +25,7 @@ class ArticleListViewController: UIViewController {
     
     let disposeBag  = DisposeBag()
     
-    var cellHeight = CGFloat(200.0)
+    var cellHeight = CGFloat(150)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class ArticleListViewController: UIViewController {
     }
     
     func confirgureCollectionCellsSize(){
-        let width  = UIScreen.main.bounds.width
+        let width  = UIScreen.main.bounds.width - 20
         let cellSize = CGSize(width: (CGFloat(width)) , height: cellHeight)
         collectionLayout.itemSize = cellSize
     }

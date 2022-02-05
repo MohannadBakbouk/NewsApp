@@ -12,3 +12,7 @@ enum API : String {
     case key = "a980ef6bc0a847e6b2958b2a7da5e3ee"
     case accept = "application/json; charset=utf-8"
 }
+
+enum Cells : String {
+    case ArticleListItemCell = "ArticleListItemCell"
+}

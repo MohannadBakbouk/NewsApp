@@ -20,11 +20,11 @@ enum Method : String {
 }
 
 enum EndPoint  {
-    case getArticles
+    case serachArticles
     var path : String {
         switch self {
-        case .getArticles:
-            return ""
+        case .serachArticles:
+            return "everything"
         }
     }
 }

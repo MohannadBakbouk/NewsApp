@@ -99,13 +99,9 @@
 		03C1650827AEB20F00591149 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				03C1650927AEB20F00591149 /* AppDelegate.swift */,
-				03C1650B27AEB20F00591149 /* SceneDelegate.swift */,
-				03C1650D27AEB20F00591149 /* ViewController.swift */,
-				03C1650F27AEB20F00591149 /* Main.storyboard */,
-				03C1651227AEB21000591149 /* Assets.xcassets */,
-				03C1651427AEB21000591149 /* LaunchScreen.storyboard */,
-				03C1651727AEB21000591149 /* Info.plist */,
+				03C1653B27AEB2F700591149 /* Screens */,
+				03C1653A27AEB2E800591149 /* Utilities */,
+				03C1653927AEB26B00591149 /* Resources */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -126,6 +122,42 @@
 				03C1652D27AEB21100591149 /* Info.plist */,
 			);
 			path = NewsAppUITests;
+			sourceTree = "<group>";
+		};
+		03C1653927AEB26B00591149 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				03C1651727AEB21000591149 /* Info.plist */,
+				03C1651227AEB21000591149 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		03C1653A27AEB2E800591149 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				03C1650927AEB20F00591149 /* AppDelegate.swift */,
+				03C1650B27AEB20F00591149 /* SceneDelegate.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		03C1653B27AEB2F700591149 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				03C1653C27AEB30400591149 /* Default */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		03C1653C27AEB30400591149 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				03C1650D27AEB20F00591149 /* ViewController.swift */,
+				03C1650F27AEB20F00591149 /* Main.storyboard */,
+				03C1651427AEB21000591149 /* LaunchScreen.storyboard */,
+			);
+			path = Default;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,7 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_FILE = NewsApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,7 +487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_FILE = NewsApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

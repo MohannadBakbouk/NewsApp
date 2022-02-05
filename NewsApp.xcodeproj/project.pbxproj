@@ -15,6 +15,10 @@
 		03C1651627AEB21000591149 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03C1651427AEB21000591149 /* LaunchScreen.storyboard */; };
 		03C1652127AEB21000591149 /* NewsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1652027AEB21000591149 /* NewsAppTests.swift */; };
 		03C1652C27AEB21100591149 /* NewsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1652B27AEB21100591149 /* NewsAppUITests.swift */; };
+		03C1654027AEB66300591149 /* APIManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1653F27AEB66300591149 /* APIManagerProtocol.swift */; };
+		03C1654227AEB68000591149 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1654127AEB68000591149 /* APIManager.swift */; };
+		03C1654427AEB68F00591149 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1654327AEB68F00591149 /* EndPoint.swift */; };
+		03C1654627AEBB1C00591149 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1654527AEBB1C00591149 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		03C1652727AEB21100591149 /* NewsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C1652B27AEB21100591149 /* NewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppUITests.swift; sourceTree = "<group>"; };
 		03C1652D27AEB21100591149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03C1653F27AEB66300591149 /* APIManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerProtocol.swift; sourceTree = "<group>"; };
+		03C1654127AEB68000591149 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		03C1654327AEB68F00591149 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		03C1654527AEBB1C00591149 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				03C1653B27AEB2F700591149 /* Screens */,
+				03C1653D27AEB62600591149 /* Networking */,
 				03C1653A27AEB2E800591149 /* Utilities */,
 				03C1653927AEB26B00591149 /* Resources */,
 			);
@@ -138,6 +147,7 @@
 			children = (
 				03C1650927AEB20F00591149 /* AppDelegate.swift */,
 				03C1650B27AEB20F00591149 /* SceneDelegate.swift */,
+				03C1654527AEBB1C00591149 /* Constant.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -158,6 +168,24 @@
 				03C1651427AEB21000591149 /* LaunchScreen.storyboard */,
 			);
 			path = Default;
+			sourceTree = "<group>";
+		};
+		03C1653D27AEB62600591149 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				03C1653E27AEB63400591149 /* Base */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		03C1653E27AEB63400591149 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				03C1653F27AEB66300591149 /* APIManagerProtocol.swift */,
+				03C1654127AEB68000591149 /* APIManager.swift */,
+				03C1654327AEB68F00591149 /* EndPoint.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,8 +318,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C1654627AEBB1C00591149 /* Constant.swift in Sources */,
+				03C1654427AEB68F00591149 /* EndPoint.swift in Sources */,
 				03C1650E27AEB20F00591149 /* ViewController.swift in Sources */,
 				03C1650A27AEB20F00591149 /* AppDelegate.swift in Sources */,
+				03C1654227AEB68000591149 /* APIManager.swift in Sources */,
+				03C1654027AEB66300591149 /* APIManagerProtocol.swift in Sources */,
 				03C1650C27AEB20F00591149 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

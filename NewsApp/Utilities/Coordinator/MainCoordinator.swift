@@ -18,15 +18,20 @@ class MainCoordinator: Coordinator {
         self.navigationController = navigation
     }
     
-    func start() {
-        let main = ViewController.instantiateFromStoryboard()
-        main.coordinator = self
-        pushViewControllerToStack(with: main)
-   
-    }
-    
     func back() {
         navigationController.popViewController(animated: true)
+    }
+    
+    func start() {
+        let splash = SplashController() //.instantiateFromStoryboard()
+        splash.coordinator = self
+        pushViewControllerToStack(with: splash)
+    }
+    
+    func showArticles(){
+        let main = ArticleListViewController()
+        main.coordinator = self
+        pushViewControllerToStack(with: main)
     }
     
     func pushViewControllerToStack(with value : UIViewController , animated : Bool = true , isRoot : Bool = false){
@@ -35,7 +40,6 @@ class MainCoordinator: Coordinator {
             navigationController.viewControllers = []
         }
         navigationController.pushViewController(value, animated: animated)
-       
     }
     
 }

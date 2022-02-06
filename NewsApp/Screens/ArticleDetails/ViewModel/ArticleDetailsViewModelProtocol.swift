@@ -15,6 +15,7 @@ protocol ArticleDetailsViewModelInput {
 
 protocol ArticleDetailsViewModelOutput {
     var article : BehaviorSubject<ArticleViewData> {get}
+    var rateResult : PublishSubject<RateStatus> {get}
 }
 
 protocol ArticleDetailsViewModelProtocol {

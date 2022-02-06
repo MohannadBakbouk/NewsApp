@@ -25,6 +25,7 @@
 		034841F227B056E800306AA0 /* ArticleDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841F127B056E800306AA0 /* ArticleDetailsViewModelProtocol.swift */; };
 		034841F427B059BA00306AA0 /* ArticleDetailsViewController+BindingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841F327B059B900306AA0 /* ArticleDetailsViewController+BindingModel.swift */; };
 		034841F627B0725700306AA0 /* RateStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841F527B0725700306AA0 /* RateStatus.swift */; };
+		034841F827B0757C00306AA0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841F727B0757C00306AA0 /* String.swift */; };
 		034B12CA27AF260B00998103 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12C927AF260B00998103 /* ArticleListViewModel.swift */; };
 		034B12CC27AF261C00998103 /* ArticleListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12CB27AF261C00998103 /* ArticleListViewModelProtocol.swift */; };
 		034B12CE27AF2EE500998103 /* ArticleViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12CD27AF2EE500998103 /* ArticleViewData.swift */; };
@@ -83,6 +84,7 @@
 		034841F127B056E800306AA0 /* ArticleDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
 		034841F327B059B900306AA0 /* ArticleDetailsViewController+BindingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleDetailsViewController+BindingModel.swift"; sourceTree = "<group>"; };
 		034841F527B0725700306AA0 /* RateStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStatus.swift; sourceTree = "<group>"; };
+		034841F727B0757C00306AA0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		034B12C927AF260B00998103 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		034B12CB27AF261C00998103 /* ArticleListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelProtocol.swift; sourceTree = "<group>"; };
 		034B12CD27AF2EE500998103 /* ArticleViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewData.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				0387D62027AF234E00E089F1 /* UIColor.swift */,
 				0339921827AFF5DE0000953C /* Reactive.swift */,
 				0339921A27B006EA0000953C /* UICollectionView.swift */,
+				034841F727B0757C00306AA0 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				034B12D027AF380C00998103 /* ArticleListViewController+bindingModel.swift in Sources */,
 				0387D61F27AF0E9F00E089F1 /* ArticleListItemCell.swift in Sources */,
 				03C1654627AEBB1C00591149 /* Constant.swift in Sources */,
+				034841F827B0757C00306AA0 /* String.swift in Sources */,
 				034841F227B056E800306AA0 /* ArticleDetailsViewModelProtocol.swift in Sources */,
 				034B12CA27AF260B00998103 /* ArticleListViewModel.swift in Sources */,
 				0339921927AFF5DE0000953C /* Reactive.swift in Sources */,

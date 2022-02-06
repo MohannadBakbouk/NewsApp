@@ -34,4 +34,13 @@ extension ArticleDetailsViewController {
         .bind(to: viewModel.inputs.rateTrigger)
         .disposed(by: disposeBag)
     }
+    
+    func subscribingToRateResult(){
+        
+        viewModel.outputs.rateResult
+        .subscribe(onNext : { [weak self] item in
+            print(item.rawValue)
+        })
+       .disposed(by: disposeBag)
+    }
 }

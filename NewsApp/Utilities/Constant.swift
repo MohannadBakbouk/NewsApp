@@ -14,5 +14,11 @@ enum API : String {
 }
 
 enum Cells : String {
-    case ArticleListItemCell = "ArticleListItemCell"
+    case articleListItemCell = "ArticleListItemCell"
+}
+
+
+enum Icons : String {
+    case publication  = "livephoto"
+    case sysWifiProblem = "exclamationmark.icloud.fill"
 }

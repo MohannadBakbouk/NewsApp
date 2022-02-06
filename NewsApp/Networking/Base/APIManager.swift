@@ -33,7 +33,8 @@ class APIManager : APIManagerProtocol {
     func call<T>(with value: URLRequest, completion: @escaping (Result<T, ApiError>) -> ()) where T : Decodable, T : Encodable {
         let task = URLSession.shared.dataTask(with: value){ (data , response , error) in
             guard let data = data , error == nil else {
-                completion(.failure(.serverError))
+                let customized : ApiError =   error.debugDescription.contains("appears to be offline.") ? .internetOffline : .serverError
+                completion(.failure(customized))
                 return
             }
             do {

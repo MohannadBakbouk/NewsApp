@@ -12,16 +12,17 @@ class ArticleListItemCell: UICollectionViewCell {
     
     var pictureView : UIImageView = {
         let img = UIImageView()
-        img.contentMode = .scaleAspectFit
+        img.contentMode = .scaleAspectFill
         img.kf.indicatorType = .activity
-        img.backgroundColor = .red
+        img.backgroundColor = .darkGray
         img.layer.cornerRadius = 15
+        img.layer.masksToBounds = true
         return img
     }()
     
     var titleLabel : UILabel = {
         let lab = UILabel()
-        lab.text = "As Kazakhstan Descends into Chaos, Crypto Miners Are at a Loss"
+        lab.text = ""
         lab.textColor = .titleColor
         lab.font = UIFont.boldSystemFont(ofSize: 16)
         lab.numberOfLines = 0
@@ -31,14 +32,14 @@ class ArticleListItemCell: UICollectionViewCell {
     
     var publicationLabel : UILabel = {
         let lab = UILabel()
-        lab.text = "publicationLabel"
+        lab.text = ""
         lab.textColor = .detailsColor
         lab.font = UIFont.boldSystemFont(ofSize: 12)
         return lab
     }()
     
     var publicationIconView  : UIImageView = {
-        let img = UIImageView(image: UIImage(systemName: "livephoto")!)
+        let img = UIImageView(image: UIImage(systemName: Icons.publication.rawValue)!)
         return img
     }()
     
@@ -104,12 +105,18 @@ class ArticleListItemCell: UICollectionViewCell {
             maker.height.equalTo(containerView.snp.height).multipliedBy(0.95)
             maker.leading.equalTo(containerView).offset(4)
             maker.centerY.equalTo(containerView.snp.centerY)
-
         }
         publicationIconView.snp.makeConstraints { maker in
             maker.height.width.equalTo(15)
            
         }
-        
+    }
+    
+    func setup(with value : ArticleViewData)  {
+        titleLabel.text = value.title
+        publicationLabel.text = value.publication
+        if let imgUrl = URL(string: value.img){
+            pictureView.kf.setImage(with: imgUrl)
+        }
     }
 }

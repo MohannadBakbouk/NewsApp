@@ -25,12 +25,20 @@ class ArticleListViewController: UIViewController {
     
     let disposeBag  = DisposeBag()
     
+    var viewModel : ArticleListViewModelProtocol!
+    
     var cellHeight = CGFloat(150)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .darkGray
+        viewModel =  ArticleListViewModel()
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.loadArticles()
+        configureUIBinding()
     }
     
     func configureUI(){
@@ -42,12 +50,19 @@ class ArticleListViewController: UIViewController {
          registerCollectionCell()
     }
     
+    func configureUIBinding(){
+        bindingCollectionViewDataSource()
+        bindingCollectionViewScrolling()
+        bindingSelectCollectionViewItem()
+        bindindCollectionViewLoadingIndicator()
+        bindingLoadingError()
+    }
+    
     func configureCollectionView(){
         collectionView = UICollectionView(frame: .zero , collectionViewLayout: collectionLayout)
         collectionView.backgroundColor = .white
         collectionView.showsVerticalScrollIndicator = false
         view.addSubview(collectionView)
-        collectionView.dataSource = self
     }
     
     func configureCollectionViewConstraints(){
@@ -66,7 +81,7 @@ class ArticleListViewController: UIViewController {
     }
     
     func registerCollectionCell()  {
-        collectionView.register(ArticleListItemCell.self, forCellWithReuseIdentifier: Cells.ArticleListItemCell.rawValue)
+        collectionView.register(ArticleListItemCell.self, forCellWithReuseIdentifier: Cells.articleListItemCell.rawValue)
     }
 }
 
@@ -77,7 +92,7 @@ extension ArticleListViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.ArticleListItemCell.rawValue, for: indexPath) as! ArticleListItemCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.articleListItemCell.rawValue, for: indexPath) as! ArticleListItemCell
         return cell
     }
 }

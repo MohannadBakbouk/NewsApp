@@ -20,7 +20,7 @@ class ArticleService : ArticleServiceProtocol {
     }
     
     func searchArticles(query: String, page: Int, pageSize : Int = 25) -> Observable<SearchArticlesResponse> {
-        let params : [String : Any]  = ["q" : query ,"apiKey" : API.key.rawValue , "pageSize" : pageSize]
+        let params : [String : Any]  = ["q" : query ,"apiKey" : API.key.rawValue , "pageSize" : pageSize , "page" : page]
         return Observable.create { observable in
             
             self.api.request(endpoint: .serachArticles, method: .Get, params: params) { (response : Result<SearchArticlesResponse, ApiError>) in

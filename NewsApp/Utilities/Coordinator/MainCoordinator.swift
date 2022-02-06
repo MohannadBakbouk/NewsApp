@@ -34,6 +34,10 @@ class MainCoordinator: Coordinator {
         pushViewControllerToStack(with: main)
     }
     
+    func showArticleDetails(with info : ArticleViewData){
+        
+    }
+    
     func pushViewControllerToStack(with value : UIViewController , animated : Bool = true , isRoot : Bool = false){
         
         if  isRoot {

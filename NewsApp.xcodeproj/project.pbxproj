@@ -21,6 +21,9 @@
 		0339922127B01CE30000953C /* ArticleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0339921F27B01CE30000953C /* ArticleDetailsViewController.swift */; };
 		0339922227B01CE30000953C /* ArticleDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0339922027B01CE30000953C /* ArticleDetailsViewController.xib */; };
 		034841ED27B03FE300306AA0 /* PaddingUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841EC27B03FE300306AA0 /* PaddingUILabel.swift */; };
+		034841F027B056AA00306AA0 /* ArticleDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841EF27B056AA00306AA0 /* ArticleDetailsViewModel.swift */; };
+		034841F227B056E800306AA0 /* ArticleDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841F127B056E800306AA0 /* ArticleDetailsViewModelProtocol.swift */; };
+		034841F427B059BA00306AA0 /* ArticleDetailsViewController+BindingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841F327B059B900306AA0 /* ArticleDetailsViewController+BindingModel.swift */; };
 		034B12CA27AF260B00998103 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12C927AF260B00998103 /* ArticleListViewModel.swift */; };
 		034B12CC27AF261C00998103 /* ArticleListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12CB27AF261C00998103 /* ArticleListViewModelProtocol.swift */; };
 		034B12CE27AF2EE500998103 /* ArticleViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12CD27AF2EE500998103 /* ArticleViewData.swift */; };
@@ -75,6 +78,9 @@
 		0339921F27B01CE30000953C /* ArticleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewController.swift; sourceTree = "<group>"; };
 		0339922027B01CE30000953C /* ArticleDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleDetailsViewController.xib; sourceTree = "<group>"; };
 		034841EC27B03FE300306AA0 /* PaddingUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingUILabel.swift; sourceTree = "<group>"; };
+		034841EF27B056AA00306AA0 /* ArticleDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewModel.swift; sourceTree = "<group>"; };
+		034841F127B056E800306AA0 /* ArticleDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
+		034841F327B059B900306AA0 /* ArticleDetailsViewController+BindingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleDetailsViewController+BindingModel.swift"; sourceTree = "<group>"; };
 		034B12C927AF260B00998103 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		034B12CB27AF261C00998103 /* ArticleListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelProtocol.swift; sourceTree = "<group>"; };
 		034B12CD27AF2EE500998103 /* ArticleViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewData.swift; sourceTree = "<group>"; };
@@ -242,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				0339921D27B01CAE0000953C /* View */,
+				034841EE27B0565800306AA0 /* ViewModel */,
 			);
 			path = ArticleDetails;
 			sourceTree = "<group>";
@@ -252,6 +259,7 @@
 				034841EB27B03FC900306AA0 /* Custom */,
 				0339921F27B01CE30000953C /* ArticleDetailsViewController.swift */,
 				0339922027B01CE30000953C /* ArticleDetailsViewController.xib */,
+				034841F327B059B900306AA0 /* ArticleDetailsViewController+BindingModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,6 +270,15 @@
 				034841EC27B03FE300306AA0 /* PaddingUILabel.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		034841EE27B0565800306AA0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				034841F127B056E800306AA0 /* ArticleDetailsViewModelProtocol.swift */,
+				034841EF27B056AA00306AA0 /* ArticleDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0387D61D27AF0E1B00E089F1 /* Cell */ = {
@@ -647,6 +664,7 @@
 				034B12D027AF380C00998103 /* ArticleListViewController+bindingModel.swift in Sources */,
 				0387D61F27AF0E9F00E089F1 /* ArticleListItemCell.swift in Sources */,
 				03C1654627AEBB1C00591149 /* Constant.swift in Sources */,
+				034841F227B056E800306AA0 /* ArticleDetailsViewModelProtocol.swift in Sources */,
 				034B12CA27AF260B00998103 /* ArticleListViewModel.swift in Sources */,
 				0339921927AFF5DE0000953C /* Reactive.swift in Sources */,
 				0339921B27B006EA0000953C /* UICollectionView.swift in Sources */,
@@ -655,6 +673,7 @@
 				032F8D3327AECA3B00B54A89 /* ArticleSearchItem.swift in Sources */,
 				034841ED27B03FE300306AA0 /* PaddingUILabel.swift in Sources */,
 				03C1654427AEB68F00591149 /* EndPoint.swift in Sources */,
+				034841F427B059BA00306AA0 /* ArticleDetailsViewController+BindingModel.swift in Sources */,
 				03C1650E27AEB20F00591149 /* SplashController.swift in Sources */,
 				032F8D3527AECB0300B54A89 /* ArticleSearchItemSource.swift in Sources */,
 				03C1650A27AEB20F00591149 /* AppDelegate.swift in Sources */,
@@ -662,6 +681,7 @@
 				032F8D3127AEC99300B54A89 /* SearchArticleResponse.swift in Sources */,
 				032F8D4327AEDE3600B54A89 /* ArticleListViewController.swift in Sources */,
 				032F8D2F27AEC6D600B54A89 /* ArticleService.swift in Sources */,
+				034841F027B056AA00306AA0 /* ArticleDetailsViewModel.swift in Sources */,
 				032F8D3827AED5F000B54A89 /* Coordinator.swift in Sources */,
 				0387D62127AF234E00E089F1 /* UIColor.swift in Sources */,
 				034B12CC27AF261C00998103 /* ArticleListViewModelProtocol.swift in Sources */,

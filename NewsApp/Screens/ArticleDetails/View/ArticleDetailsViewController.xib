@@ -10,10 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArticleDetailsViewController" customModule="NewsApp" customModuleProvider="target">
             <connections>
-                <outlet property="contentHeight" destination="WO2-sy-8W4" id="e8Q-PM-iJO"/>
                 <outlet property="contentTextView" destination="d1c-CK-BjQ" id="JY9-Rx-weN"/>
-                <outlet property="descriptionHeight" destination="3LD-Jf-aXm" id="Znm-0r-7gD"/>
                 <outlet property="descriptionTextView" destination="vk6-IS-EKm" id="oLN-NP-XNg"/>
+                <outlet property="imgView" destination="DW7-lz-gOn" id="pXh-F1-rMi"/>
+                <outlet property="titleLabel" destination="NUn-Kw-tmX" id="Tdi-Ls-LKe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,9 +26,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="752"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeL-bz-Uip" userLabel="container">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1002"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="752"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DW7-lz-gOn">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DW7-lz-gOn">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="325"/>
                                     <color key="backgroundColor" systemColor="systemGrayColor"/>
                                     <constraints>
@@ -42,61 +42,53 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2Q-kF-zSO">
-                                    <rect key="frame" x="20" y="425.5" width="64" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="012-WD-BaJ">
-                                    <rect key="frame" x="20" y="350" width="92" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vk6-IS-EKm">
-                                    <rect key="frame" x="20" y="375.5" width="374" height="25"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="3LD-Jf-aXm"/>
-                                    </constraints>
-                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                    <color key="textColor" systemColor="labelColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1c-CK-BjQ">
-                                    <rect key="frame" x="20" y="451" width="374" height="200"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="200" id="WO2-sy-8W4"/>
-                                    </constraints>
-                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. "author": "The Conversation",
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="FuK-cy-cqP">
+                                    <rect key="frame" x="20" y="350" width="374" height="574.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="012-WD-BaJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="92" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vk6-IS-EKm">
+                                            <rect key="frame" x="0.0" y="31.5" width="372.5" height="183.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                            <color key="textColor" systemColor="labelColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2Q-kF-zSO">
+                                            <rect key="frame" x="0.0" y="226" width="64" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1c-CK-BjQ">
+                                            <rect key="frame" x="0.0" y="257.5" width="373.5" height="317"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. "author": "The Conversation",
 "title": "Astronomers discovered a new asteroid sharing Earth’s orbit – here’s why it matters",
 "description": "Research has shown that the Earth trails an asteroid barely a kilometer across in its orbit about the Sun – only the second such body to have ever been spotted. It goes around the Sun on average two months ahead of the Earth, dancing around in front like an e…",</string>
-                                    <color key="textColor" systemColor="labelColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
+                                            <color key="textColor" systemColor="labelColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstItem="FuK-cy-cqP" firstAttribute="top" secondItem="DW7-lz-gOn" secondAttribute="bottom" constant="25" id="0Dv-Sm-Orl"/>
                                 <constraint firstItem="DW7-lz-gOn" firstAttribute="leading" secondItem="BeL-bz-Uip" secondAttribute="leading" id="0Nt-7O-SPZ"/>
                                 <constraint firstItem="NUn-Kw-tmX" firstAttribute="leading" secondItem="BeL-bz-Uip" secondAttribute="leading" id="3np-6s-YAs"/>
-                                <constraint firstItem="012-WD-BaJ" firstAttribute="top" secondItem="DW7-lz-gOn" secondAttribute="bottom" constant="25" id="9KC-aq-aAg"/>
-                                <constraint firstAttribute="trailing" secondItem="vk6-IS-EKm" secondAttribute="trailing" constant="20" id="FtM-Yv-ZNU"/>
                                 <constraint firstItem="NUn-Kw-tmX" firstAttribute="bottom" secondItem="DW7-lz-gOn" secondAttribute="bottom" constant="-15" id="MBC-B8-rUW"/>
-                                <constraint firstAttribute="trailing" secondItem="d1c-CK-BjQ" secondAttribute="trailing" constant="20" id="MeR-9T-bcy"/>
-                                <constraint firstItem="d1c-CK-BjQ" firstAttribute="leading" secondItem="BeL-bz-Uip" secondAttribute="leading" constant="20" id="Wiy-QE-88W"/>
-                                <constraint firstItem="q2Q-kF-zSO" firstAttribute="top" secondItem="vk6-IS-EKm" secondAttribute="bottom" constant="25" id="YG3-Pp-SkS"/>
-                                <constraint firstItem="vk6-IS-EKm" firstAttribute="top" secondItem="012-WD-BaJ" secondAttribute="bottom" constant="5" id="Zi7-D4-6TJ"/>
+                                <constraint firstAttribute="trailing" secondItem="FuK-cy-cqP" secondAttribute="trailing" constant="20" id="hnV-7W-d37"/>
                                 <constraint firstItem="NUn-Kw-tmX" firstAttribute="width" secondItem="DW7-lz-gOn" secondAttribute="width" multiplier="0.95" id="iy4-c9-fZn"/>
-                                <constraint firstItem="vk6-IS-EKm" firstAttribute="leading" secondItem="BeL-bz-Uip" secondAttribute="leading" constant="20" id="kNz-bb-zrK"/>
-                                <constraint firstItem="q2Q-kF-zSO" firstAttribute="leading" secondItem="BeL-bz-Uip" secondAttribute="leading" constant="20" id="pHh-qh-xQX"/>
-                                <constraint firstItem="012-WD-BaJ" firstAttribute="leading" secondItem="BeL-bz-Uip" secondAttribute="leading" constant="20" id="qEQ-NK-V5W"/>
                                 <constraint firstAttribute="trailing" secondItem="DW7-lz-gOn" secondAttribute="trailing" id="sdG-rC-6uF"/>
-                                <constraint firstItem="d1c-CK-BjQ" firstAttribute="top" secondItem="q2Q-kF-zSO" secondAttribute="bottom" constant="5" id="tn7-OK-12s"/>
                                 <constraint firstItem="DW7-lz-gOn" firstAttribute="top" secondItem="BeL-bz-Uip" secondAttribute="top" id="uvd-VN-fmj"/>
+                                <constraint firstItem="FuK-cy-cqP" firstAttribute="leading" secondItem="BeL-bz-Uip" secondAttribute="leading" constant="20" id="v76-fD-cP0"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -106,7 +98,7 @@
                         <constraint firstItem="BeL-bz-Uip" firstAttribute="width" secondItem="CwT-cr-nwZ" secondAttribute="width" id="84u-50-BX6"/>
                         <constraint firstItem="BeL-bz-Uip" firstAttribute="trailing" secondItem="lLf-69-9Ob" secondAttribute="trailing" id="8HB-6a-68m"/>
                         <constraint firstItem="BeL-bz-Uip" firstAttribute="bottom" secondItem="lLf-69-9Ob" secondAttribute="bottom" id="fQs-qc-cOv"/>
-                        <constraint firstItem="BeL-bz-Uip" firstAttribute="height" secondItem="CwT-cr-nwZ" secondAttribute="height" priority="750" constant="250" id="yOx-RW-aZ5"/>
+                        <constraint firstItem="BeL-bz-Uip" firstAttribute="height" secondItem="CwT-cr-nwZ" secondAttribute="height" priority="750" id="yOx-RW-aZ5"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="lLf-69-9Ob"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="CwT-cr-nwZ"/>
@@ -157,6 +149,11 @@
             <point key="canvasLocation" x="131.8840579710145" y="91.741071428571431"/>
         </view>
     </objects>
+    <designables>
+        <designable name="NUn-Kw-tmX">
+            <size key="intrinsicContentSize" width="740.5" height="20.5"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

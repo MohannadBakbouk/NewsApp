@@ -8,11 +8,13 @@ import RxSwift
 
 class ArticleDetailsViewModel: ArticleDetailsViewModelProtocol , ArticleDetailsViewModelEvents {
     
-    var inputs: ArticleDetailsViewModelInput {self}
+    var inputs : ArticleDetailsViewModelInput {self}
     
-    var outputs: ArticleDetailsViewModelOutput {self}
+    var outputs : ArticleDetailsViewModelOutput {self}
     
-    var rateTrigger: PublishSubject<Void>
+    var rateTrigger : PublishSubject<Void>
+    
+    var rateValue : BehaviorSubject<String>
     
     var article: BehaviorSubject<ArticleViewData>
     
@@ -20,8 +22,20 @@ class ArticleDetailsViewModel: ArticleDetailsViewModelProtocol , ArticleDetailsV
     
     init(article : ArticleViewData) {
         self.article = BehaviorSubject(value: article)
+        rateValue = BehaviorSubject(value: "")
         rateTrigger = PublishSubject()
+        subscribingToRateValue()
+    }
+    
+    func subscribingToRateValue(){
+        rateTrigger.subscribe(onNext : {[weak self] item in
+            guard let self = self else {return}
+            if let userRate = try? self.rateValue.value() {
+                print(userRate)
+            }
+        }).disposed(by: disposeBag)
     }
     
     
 }
+

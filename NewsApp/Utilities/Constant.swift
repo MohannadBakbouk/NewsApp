@@ -17,7 +17,6 @@ enum Cells : String {
     case articleListItemCell = "ArticleListItemCell"
 }
 
-
 enum Icons : String {
     case publication  = "livephoto"
     case sysWifiProblem = "exclamationmark.icloud.fill"

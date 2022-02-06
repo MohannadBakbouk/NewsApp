@@ -20,4 +20,18 @@ extension ArticleDetailsViewController {
             }
         }).disposed(by: disposeBag)
     }
+    
+    func subscriptingToRateTextField(){
+        rateTextField.rx.controlEvent(.editingChanged)
+        .withLatestFrom(rateTextField.rx.text.orEmpty)
+        .bind(to: viewModel.inputs.rateValue)
+        .disposed(by: disposeBag)
+    }
+    
+    func subscriptingToRateButton(){
+        rateButton.rx.tap
+        .throttle(RxTimeInterval.milliseconds(2), scheduler: MainScheduler.instance)
+        .bind(to: viewModel.inputs.rateTrigger)
+        .disposed(by: disposeBag)
+    }
 }

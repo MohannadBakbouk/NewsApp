@@ -11,28 +11,34 @@ class ArticleDetailsViewController: UIViewController {
 
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    @IBOutlet weak var descriptionHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var contentTextView: UITextView!
-    
-    @IBOutlet weak var contentHeight: NSLayoutConstraint!
     
     @IBOutlet weak var titleLabel: PaddingUILabel!
     
     @IBOutlet weak var imgView: UIImageView!
     
+    @IBOutlet weak var rateTextField: UITextField!
+    
+    
+    @IBOutlet weak var rateButton: UIButton!
     let disposeBag  = DisposeBag()
     
     var viewModel : ArticleDetailsViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindingArticleInfoToUI()
+        configureUIBinding()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
     }
     
-
+    func configureUIBinding(){
+        bindingArticleInfoToUI()
+        subscriptingToRateButton()
+        subscriptingToRateTextField()
+    }
+    
 }

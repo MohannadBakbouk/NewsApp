@@ -10,6 +10,7 @@ typealias ArticleDetailsViewModelEvents = ArticleDetailsViewModelInput & Article
 
 protocol ArticleDetailsViewModelInput {
     var rateTrigger : PublishSubject<Void> {get}
+    var rateValue : BehaviorSubject<String> {get}
 }
 
 protocol ArticleDetailsViewModelOutput {

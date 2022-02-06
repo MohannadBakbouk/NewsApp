@@ -63,7 +63,6 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
                 self.isLoadingMore.onNext(false)
                 self.isLoading.onNext(false)
                 self.pageCount = Int(info.totalResults / self.pageSize)
-                print(self.pageCount)
             }
             else if let error = event.error  as? ApiError{
                 self.onError.onNext(error.message)

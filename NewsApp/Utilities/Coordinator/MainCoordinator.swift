@@ -35,7 +35,9 @@ class MainCoordinator: Coordinator {
     }
     
     func showArticleDetails(with info : ArticleViewData){
-        
+        let articleDetails = ArticleDetailsViewController()
+        navigationController.navigationBar.isHidden = false
+        pushViewControllerToStack(with: articleDetails)
     }
     
     func pushViewControllerToStack(with value : UIViewController , animated : Bool = true , isRoot : Bool = false){

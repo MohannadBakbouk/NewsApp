@@ -33,12 +33,8 @@ class ArticleListViewController: UIViewController {
         super.viewDidLoad()
         viewModel =  ArticleListViewModel()
         configureUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.loadArticles()
         configureUIBinding()
+        viewModel.loadArticles()
     }
     
     func configureUI(){
@@ -82,17 +78,5 @@ class ArticleListViewController: UIViewController {
     
     func registerCollectionCell()  {
         collectionView.register(ArticleListItemCell.self, forCellWithReuseIdentifier: Cells.articleListItemCell.rawValue)
-    }
-}
-
-
-extension ArticleListViewController : UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.articleListItemCell.rawValue, for: indexPath) as! ArticleListItemCell
-        return cell
     }
 }

@@ -26,10 +26,13 @@
 		034841F427B059BA00306AA0 /* ArticleDetailsViewController+BindingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841F327B059B900306AA0 /* ArticleDetailsViewController+BindingModel.swift */; };
 		034841F627B0725700306AA0 /* RateStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841F527B0725700306AA0 /* RateStatus.swift */; };
 		034841F827B0757C00306AA0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841F727B0757C00306AA0 /* String.swift */; };
+		034841FB27B084C600306AA0 /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034841FA27B084C600306AA0 /* BaseAlert.swift */; };
 		034B12CA27AF260B00998103 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12C927AF260B00998103 /* ArticleListViewModel.swift */; };
 		034B12CC27AF261C00998103 /* ArticleListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12CB27AF261C00998103 /* ArticleListViewModelProtocol.swift */; };
 		034B12CE27AF2EE500998103 /* ArticleViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12CD27AF2EE500998103 /* ArticleViewData.swift */; };
 		034B12D027AF380C00998103 /* ArticleListViewController+bindingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034B12CF27AF380C00998103 /* ArticleListViewController+bindingModel.swift */; };
+		036CBB9727B135A800CCD6E2 /* InfoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CBB9627B135A800CCD6E2 /* InfoAlert.swift */; };
+		036CBB9927B1467400CCD6E2 /* IndicatorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036CBB9827B1467400CCD6E2 /* IndicatorAlert.swift */; };
 		0387D61F27AF0E9F00E089F1 /* ArticleListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0387D61E27AF0E9E00E089F1 /* ArticleListItemCell.swift */; };
 		0387D62127AF234E00E089F1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0387D62027AF234E00E089F1 /* UIColor.swift */; };
 		03C1650A27AEB20F00591149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C1650927AEB20F00591149 /* AppDelegate.swift */; };
@@ -85,10 +88,13 @@
 		034841F327B059B900306AA0 /* ArticleDetailsViewController+BindingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleDetailsViewController+BindingModel.swift"; sourceTree = "<group>"; };
 		034841F527B0725700306AA0 /* RateStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateStatus.swift; sourceTree = "<group>"; };
 		034841F727B0757C00306AA0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		034841FA27B084C600306AA0 /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
 		034B12C927AF260B00998103 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		034B12CB27AF261C00998103 /* ArticleListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModelProtocol.swift; sourceTree = "<group>"; };
 		034B12CD27AF2EE500998103 /* ArticleViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewData.swift; sourceTree = "<group>"; };
 		034B12CF27AF380C00998103 /* ArticleListViewController+bindingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleListViewController+bindingModel.swift"; sourceTree = "<group>"; };
+		036CBB9627B135A800CCD6E2 /* InfoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlert.swift; sourceTree = "<group>"; };
+		036CBB9827B1467400CCD6E2 /* IndicatorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorAlert.swift; sourceTree = "<group>"; };
 		0387D61E27AF0E9E00E089F1 /* ArticleListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListItemCell.swift; sourceTree = "<group>"; };
 		0387D62027AF234E00E089F1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		03C1650627AEB20F00591149 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,6 +292,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		034841F927B084AE00306AA0 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				034841FA27B084C600306AA0 /* BaseAlert.swift */,
+				036CBB9627B135A800CCD6E2 /* InfoAlert.swift */,
+				036CBB9827B1467400CCD6E2 /* IndicatorAlert.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		0387D61D27AF0E1B00E089F1 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +373,7 @@
 		03C1653A27AEB2E800591149 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				034841F927B084AE00306AA0 /* Alert */,
 				032F8D3627AED5E000B54A89 /* Coordinator */,
 				032F8D3B27AED80900B54A89 /* Extensions */,
 				03C1650927AEB20F00591149 /* AppDelegate.swift */,
@@ -681,10 +698,12 @@
 				034841ED27B03FE300306AA0 /* PaddingUILabel.swift in Sources */,
 				03C1654427AEB68F00591149 /* EndPoint.swift in Sources */,
 				034841F427B059BA00306AA0 /* ArticleDetailsViewController+BindingModel.swift in Sources */,
+				036CBB9727B135A800CCD6E2 /* InfoAlert.swift in Sources */,
 				03C1650E27AEB20F00591149 /* SplashController.swift in Sources */,
 				032F8D3527AECB0300B54A89 /* ArticleSearchItemSource.swift in Sources */,
 				03C1650A27AEB20F00591149 /* AppDelegate.swift in Sources */,
 				0339922127B01CE30000953C /* ArticleDetailsViewController.swift in Sources */,
+				036CBB9927B1467400CCD6E2 /* IndicatorAlert.swift in Sources */,
 				032F8D3127AEC99300B54A89 /* SearchArticleResponse.swift in Sources */,
 				032F8D4327AEDE3600B54A89 /* ArticleListViewController.swift in Sources */,
 				032F8D2F27AEC6D600B54A89 /* ArticleService.swift in Sources */,
@@ -695,6 +714,7 @@
 				034B12CC27AF261C00998103 /* ArticleListViewModelProtocol.swift in Sources */,
 				03C1654227AEB68000591149 /* APIManager.swift in Sources */,
 				032F8D3A27AED67200B54A89 /* MainCoordinator.swift in Sources */,
+				034841FB27B084C600306AA0 /* BaseAlert.swift in Sources */,
 				03C1654027AEB66300591149 /* APIManagerProtocol.swift in Sources */,
 				03C1650C27AEB20F00591149 /* SceneDelegate.swift in Sources */,
 			);

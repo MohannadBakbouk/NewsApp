@@ -20,4 +20,5 @@ enum Cells : String {
 enum Icons : String {
     case publication  = "livephoto"
     case sysWifiProblem = "exclamationmark.icloud.fill"
+    case infoAlert = "info.circle"
 }

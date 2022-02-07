@@ -8,6 +8,10 @@ import UIKit
 import RxSwift
 
 class ArticleDetailsViewController: UIViewController {
+    
+    var infoAlert : InfoAlert?
+    
+    var indicatorAlert : IndicatorAlert?
 
     @IBOutlet weak var descriptionTextView: UITextView!
     
@@ -19,8 +23,8 @@ class ArticleDetailsViewController: UIViewController {
     
     @IBOutlet weak var rateTextField: UITextField!
     
-    
     @IBOutlet weak var rateButton: UIButton!
+    
     let disposeBag  = DisposeBag()
     
     var viewModel : ArticleDetailsViewModelProtocol!
@@ -33,13 +37,30 @@ class ArticleDetailsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        indicatorAlert = nil
+        infoAlert = nil
     }
     
     func configureUIBinding(){
         bindingArticleInfoToUI()
-        subscriptingToRateButton()
-        subscriptingToRateTextField()
+        subscribingToRateButton()
+        subscribingToRateTextField()
         subscribingToRateResult()
+        subscribingToProcessingRate()
+    }
+    
+    func configureInfoAlert(){
+        self.infoAlert = InfoAlert()
+        self.infoAlert?.onCompletedHideAction = { [weak self] in
+            self?.infoAlert = nil
+        }
+    }
+    
+    func configureIndicatorAlert(){
+        indicatorAlert = IndicatorAlert()
+        self.indicatorAlert?.onCompletedHideAction = { [weak self] in
+            self?.indicatorAlert = nil
+        }
     }
     
 }

@@ -43,6 +43,11 @@ extension UIColor {
         return UIColor(hexString: "414246")
     }
     
+    static var alertBg : UIColor {
+        
+        return UIColor(hexString: "c0392b")
+    }
+    
 }
 
 

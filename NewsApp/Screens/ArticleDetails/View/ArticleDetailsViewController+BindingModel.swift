@@ -21,25 +21,39 @@ extension ArticleDetailsViewController {
         }).disposed(by: disposeBag)
     }
     
-    func subscriptingToRateTextField(){
+    func subscribingToRateTextField(){
         rateTextField.rx.controlEvent(.editingChanged)
         .withLatestFrom(rateTextField.rx.text.orEmpty)
         .bind(to: viewModel.inputs.rateValue)
         .disposed(by: disposeBag)
     }
     
-    func subscriptingToRateButton(){
+    func subscribingToRateButton(){
         rateButton.rx.tap
-        .throttle(RxTimeInterval.milliseconds(2), scheduler: MainScheduler.instance)
+        .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
         .bind(to: viewModel.inputs.rateTrigger)
         .disposed(by: disposeBag)
+        
+    }
+    
+    func subscribingToProcessingRate(){
+        viewModel.outputs.processingRate
+        .subscribe(onNext: { [weak self] item in
+            DispatchQueue.main.async{
+              self?.configureIndicatorAlert()
+              self?.indicatorAlert?.show()
+            }
+        }).disposed(by: disposeBag)
     }
     
     func subscribingToRateResult(){
-        
-        viewModel.outputs.rateResult
+         viewModel.outputs.rateResult
         .subscribe(onNext : { [weak self] item in
-            print(item.rawValue)
+            DispatchQueue.main.async {
+                self?.indicatorAlert?.hide()
+                self?.configureInfoAlert()
+                self?.infoAlert?.show(message: item.rawValue)
+            }
         })
        .disposed(by: disposeBag)
     }

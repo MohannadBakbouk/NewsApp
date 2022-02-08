@@ -44,7 +44,7 @@ class LocalStorage : LocalStorageProtocol {
         return realm.objects(T.self).filter(predicate).filter({ !$0.isInvalidated })
     }
     
-    func write<T>(_ object: T?) -> Bool where T : Object {
+    @discardableResult  func write<T>(_ object: T?) -> Bool where T : Object {
         guard  let realm: Realm = self.realm ,
                let object: T = object , !object.isInvalidated  else { return false }
         do {
@@ -58,7 +58,7 @@ class LocalStorage : LocalStorageProtocol {
         return false
     }
     
-    func write<T>(_ objects: [T]?) -> Bool where T : Object {
+    @discardableResult  func write<T>(_ objects: [T]?) -> Bool where T : Object {
         guard  let realm: Realm = self.realm ,
                let objects : [T] = objects else { return false }
         let validated: [T] = objects.filter({ !$0.isInvalidated })
@@ -85,7 +85,7 @@ class LocalStorage : LocalStorageProtocol {
         return false
     }
     
-    func delete<T>(_ object: T) -> Bool where T : Object {
+    @discardableResult  func delete<T>(_ object: T) -> Bool where T : Object {
         guard let realm: Realm = self.realm else { return false }
         guard !object.isInvalidated else { return true }
         do {
@@ -99,7 +99,7 @@ class LocalStorage : LocalStorageProtocol {
         return false
     }
     
-    func delete<T>(_ objects: [T]) -> Bool where T : Object {
+    @discardableResult  func delete<T>(_ objects: [T]) -> Bool where T : Object {
         guard let realm: Realm = self.realm else { return false }
 
         do {
@@ -113,7 +113,7 @@ class LocalStorage : LocalStorageProtocol {
         return false
     }
     
-    func deleteAll<T>(_ object: T.Type) -> Bool where T : Object {
+    @discardableResult func deleteAll<T>(_ object: T.Type) -> Bool where T : Object {
         guard let realm: Realm = self.realm else { return false }
         do {
             try realm.write {

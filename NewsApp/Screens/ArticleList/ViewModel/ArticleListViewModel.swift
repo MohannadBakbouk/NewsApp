@@ -14,6 +14,8 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
     
     var outputs : ArticleListViewModelOutput {return self}
     
+    var internals: ArticleListViewModelInternal {return self}
+    
     var articles: BehaviorSubject<[ArticleViewData]>
     
     var onError: PublishSubject<String>
@@ -23,6 +25,10 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
     var isLoadingMore : BehaviorSubject<Bool>
     
     var reachedBottomTrigger : PublishSubject<Void>
+    
+    var writeToLocalDbTrigger: PublishSubject<[Article]>
+    
+    var loadFromLocalDbTriggerWith : PublishSubject<ApiError>
     
     let disposeBag = DisposeBag()
     
@@ -44,6 +50,8 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
         articles = BehaviorSubject(value: [])
         onError = PublishSubject()
         reachedBottomTrigger = PublishSubject()
+        writeToLocalDbTrigger = PublishSubject()
+        loadFromLocalDbTriggerWith = PublishSubject()
         apiService = ArticleService()
         localStorage = LocalStorage()
         currentPage = 1
@@ -51,25 +59,30 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
         pageSize = 25
         query = "bitcoin"
         configureReachedBottomTrigger()
+        subscribingToWriteToLocalDB()
+        subscribingToLoadFromLocalDB()
     }
     
     func loadArticles()  {
         isLoading.onNext(currentPage == 1)
         
         let results =  apiService.searchArticles(query: query, page: currentPage)
-        print(NSHomeDirectory())
         results.subscribe{[weak self] event in
             guard let self = self else { return }
             if let info = event.element , var items = try? self.articles.value()  {
-                self.pageCount = Int(info.totalResults / self.pageSize)
-                items.append(contentsOf: info.articles.map{ArticleViewData(data: $0)})
+                let newBatch = info.articles.map{ArticleViewData(data: $0)}
+                items.append(contentsOf: newBatch)
                 self.articles.onNext(items)
                 self.isLoadingMore.onNext(false)
                 self.isLoading.onNext(false)
                 self.pageCount = Int(info.totalResults / self.pageSize)
+                let articles = newBatch.map{Article(data: $0)}
+                self.internals.writeToLocalDbTrigger.onNext(articles)
             }
             else if let error = event.error  as? ApiError{
-                self.onError.onNext(error.message)
+               /* self.onError.onNext(error.message) */
+                self.internals.loadFromLocalDbTriggerWith.onNext(error)
+                
             }
         }.disposed(by: disposeBag)
     }
@@ -86,6 +99,35 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
             self.currentPage += 1
             self.isLoadingMore.onNext(true)
             self.loadArticles()
+        }).disposed(by: disposeBag)
+    }
+    
+    func subscribingToWriteToLocalDB(){
+        internals.writeToLocalDbTrigger.subscribe(onNext :{[weak self] articles in
+            guard let self = self else { return }
+            print(NSHomeDirectory())
+            if self.currentPage == 1 {
+                self.localStorage.deleteAll(Article.self)
+            }
+           self.localStorage.write(articles)
+        }).disposed(by: disposeBag)
+    }
+    
+    func subscribingToLoadFromLocalDB(){
+        internals.loadFromLocalDbTriggerWith.subscribe(onNext :{[weak self] error in
+            guard let self = self else { return }
+            print(NSHomeDirectory())
+            let articles : [Article] =  self.localStorage.objects()
+            if articles.count > 0 {
+                let items = articles.map{ArticleViewData(stored: $0)}
+                self.articles.onNext(items)
+                self.isLoadingMore.onNext(false)
+                self.isLoading.onNext(false)
+            }
+            else {
+                self.onError.onNext(error.message)
+            }
+         
         }).disposed(by: disposeBag)
     }
     

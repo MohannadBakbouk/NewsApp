@@ -21,4 +21,13 @@ struct ArticleViewData {
         self.img = data.urlToImage
         self.id = UUID().uuidString
     }
+    
+    init(stored : Article) {
+        self.title = stored.title
+        self.content = stored.content
+        self.summery = stored.description
+        self.publication = stored.publication
+        self.img = stored.img
+        self.id = stored.id
+    }
 }

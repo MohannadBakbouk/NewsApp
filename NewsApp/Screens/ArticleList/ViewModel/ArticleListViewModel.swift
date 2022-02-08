@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RealmSwift
 
 class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModelEvents {
     
@@ -27,6 +28,8 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
     
     var apiService : ArticleService
     
+    var localStorage : LocalStorage
+    
     var currentPage : Int
     
     var pageCount : Int
@@ -42,6 +45,7 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
         onError = PublishSubject()
         reachedBottomTrigger = PublishSubject()
         apiService = ArticleService()
+        localStorage = LocalStorage()
         currentPage = 1
         pageCount = -1
         pageSize = 25
@@ -53,7 +57,7 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
         isLoading.onNext(currentPage == 1)
         
         let results =  apiService.searchArticles(query: query, page: currentPage)
-        
+        print(NSHomeDirectory())
         results.subscribe{[weak self] event in
             guard let self = self else { return }
             if let info = event.element , var items = try? self.articles.value()  {

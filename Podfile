@@ -11,6 +11,7 @@ target 'NewsApp' do
    pod 'Kingfisher', '~> 7.0'
    pod 'SnapKit', '~> 5.0.0'
    pod 'MaterialComponents/ActivityIndicator'
+   pod 'RealmSwift', '~>10'
 
   target 'NewsAppTests' do
     inherit! :search_paths

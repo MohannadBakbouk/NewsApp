@@ -13,6 +13,7 @@ enum ApiError : Error {
     case internalError
     case invalidUrlError
     case internetOffline
+    case maximumResultsReached
     
     var message : String {
         switch self {
@@ -20,6 +21,8 @@ enum ApiError : Error {
             return "Please make sure you are connected to the internet"
         case .serverError :
             return "an internal error occured in server side please try again"
+        case .maximumResultsReached:
+            return "You have requested too many results. Developer accounts are limited to a max of 100 results."
         default:
             return "an internal error occured"
         }

@@ -24,10 +24,13 @@ class ArticleService : ArticleServiceProtocol {
         return Observable.create { observable in
             
             self.api.request(endpoint: .serachArticles, method: .Get, params: params) { (response : Result<SearchArticlesResponse, ApiError>) in
-                
                 if  case .success(let data) = response , data.status == "ok"{
                     debugPrint(data.articles.count)
+                    debugPrint(data.articles.count)
                     observable.onNext(data)
+                }
+                else if  case .success(let data) = response , data.status == "error" , data.code == String(describing: ApiError.maximumResultsReached) {
+                    observable.onError(ApiError.maximumResultsReached)
                 }
                 else if case .failure(let ex) = response{
                     observable.onError(ex)

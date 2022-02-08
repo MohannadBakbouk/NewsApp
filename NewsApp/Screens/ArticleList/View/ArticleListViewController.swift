@@ -25,6 +25,8 @@ class ArticleListViewController: UIViewController {
     
     let disposeBag  = DisposeBag()
     
+    var infoAlert : InfoAlert?
+    
     var viewModel : ArticleListViewModelProtocol!
     
     var cellHeight = CGFloat(150)
@@ -35,6 +37,10 @@ class ArticleListViewController: UIViewController {
         configureUI()
         configureUIBinding()
         viewModel.loadArticles()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        infoAlert = nil
     }
     
     func configureUI(){
@@ -52,6 +58,7 @@ class ArticleListViewController: UIViewController {
         bindingSelectCollectionViewItem()
         bindindCollectionViewLoadingIndicator()
         bindingLoadingError()
+        bindingMaximumResultsReachedError()
     }
     
     func configureCollectionView(){
@@ -78,5 +85,12 @@ class ArticleListViewController: UIViewController {
     
     func registerCollectionCell()  {
         collectionView.register(ArticleListItemCell.self, forCellWithReuseIdentifier: Cells.articleListItemCell.rawValue)
+    }
+    
+    func configureInfoAlert(){
+        self.infoAlert = InfoAlert()
+        self.infoAlert?.onCompletedHideAction = { [weak self] in
+            self?.infoAlert = nil
+        }
     }
 }

@@ -4,7 +4,6 @@
 //
 //  Created by Mohannad on 2/5/22.
 //
-
 import RxSwift
 import RxCocoa
 
@@ -48,6 +47,15 @@ extension ArticleListViewController {
         .observe(on: MainScheduler.asyncInstance)
         .subscribe(onNext : { [weak self] error in
             self?.collectionView.setMessage(error)
+        }).disposed(by: disposeBag)
+    }
+    
+    func bindingMaximumResultsReachedError(){
+        viewModel.outputs.onMaximumResultsReachedError
+        .observe(on: MainScheduler.asyncInstance)
+        .subscribe(onNext : { [weak self] error in
+            self?.configureInfoAlert()
+            self?.infoAlert?.show(message: error)
         }).disposed(by: disposeBag)
     }
 }

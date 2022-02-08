@@ -4,7 +4,6 @@
 //
 //  Created by Mohannad on 2/5/22.
 //
-
 import RxSwift
 
 typealias  ArticleListViewModelEvents = ArticleListViewModelInput & ArticleListViewModelOutput & ArticleListViewModelInternal
@@ -18,6 +17,8 @@ protocol ArticleListViewModelOutput  {
     var isLoadingMore : BehaviorSubject<Bool> {get}
 
     var onError : PublishSubject<String> {get}
+    
+    var onMaximumResultsReachedError :  PublishSubject<String> {get}
 }
 
 protocol ArticleListViewModelInput {
@@ -26,7 +27,9 @@ protocol ArticleListViewModelInput {
 }
 
 protocol ArticleListViewModelInternal{
+    
     var writeToLocalDbTrigger : PublishSubject<[Article]> {get}
+    
     var loadFromLocalDbTriggerWith : PublishSubject<ApiError>{get}
 }
 

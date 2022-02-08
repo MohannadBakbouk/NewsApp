@@ -30,6 +30,8 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
     
     var loadFromLocalDbTriggerWith : PublishSubject<ApiError>
     
+    var onMaximumResultsReachedError : PublishSubject<String>
+    
     let disposeBag = DisposeBag()
     
     var apiService : ArticleService
@@ -52,6 +54,7 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
         reachedBottomTrigger = PublishSubject()
         writeToLocalDbTrigger = PublishSubject()
         loadFromLocalDbTriggerWith = PublishSubject()
+        onMaximumResultsReachedError = PublishSubject()
         apiService = ArticleService()
         localStorage = LocalStorage()
         currentPage = 1
@@ -80,9 +83,12 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
                 self.internals.writeToLocalDbTrigger.onNext(articles)
             }
             else if let error = event.error  as? ApiError{
-               /* self.onError.onNext(error.message) */
-                self.internals.loadFromLocalDbTriggerWith.onNext(error)
-                
+                if error != .maximumResultsReached { // that means it fails to load content
+                  self.internals.loadFromLocalDbTriggerWith.onNext(error)
+                }
+                else {
+                  self.onMaximumResultsReachedError.onNext(error.message)
+                }
             }
         }.disposed(by: disposeBag)
     }

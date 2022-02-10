@@ -18,6 +18,8 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
     
     var articles: BehaviorSubject<[ArticleViewData]>
     
+    var rawArticles : PublishSubject<SearchArticlesResponse>
+    
     var onError: PublishSubject<String>
     
     var isLoading: BehaviorSubject<Bool>
@@ -34,9 +36,9 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
     
     let disposeBag = DisposeBag()
     
-    var apiService : ArticleService
+    var apiService : ArticleServiceProtocol
     
-    var localStorage : LocalStorage
+    var localStorage : LocalStorageProtocol
     
     var currentPage : Int
     
@@ -46,17 +48,18 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
     
     var query : String
     
-    init() {
+    init(api : ArticleServiceProtocol = ArticleService() , localDb : LocalStorageProtocol = LocalStorage() ) {
         isLoading = BehaviorSubject(value: false)
         isLoadingMore = BehaviorSubject(value: false)
         articles = BehaviorSubject(value: [])
+        rawArticles = PublishSubject()
         onError = PublishSubject()
         reachedBottomTrigger = PublishSubject()
         writeToLocalDbTrigger = PublishSubject()
         loadFromLocalDbTriggerWith = PublishSubject()
         onMaximumResultsReachedError = PublishSubject()
-        apiService = ArticleService()
-        localStorage = LocalStorage()
+        apiService = api
+        localStorage = localDb
         currentPage = 1
         pageCount = -1
         pageSize = 25
@@ -64,13 +67,17 @@ class ArticleListViewModel: ArticleListViewModelProtocol &  ArticleListViewModel
         configureReachedBottomTrigger()
         subscribingToWriteToLocalDB()
         subscribingToLoadFromLocalDB()
+        subcribingToRawArticles()
     }
     
     func loadArticles()  {
-        isLoading.onNext(currentPage == 1)
-        
-        let results =  apiService.searchArticles(query: query, page: currentPage)
-        results.subscribe{[weak self] event in
+         isLoading.onNext(currentPage == 1)
+         apiService.searchArticles(query: query, page: currentPage, pageSize: 25)
+        .bind(to: rawArticles).disposed(by: disposeBag)
+    }
+    
+    func subcribingToRawArticles(){
+        internals.rawArticles.subscribe{[weak self] event in
             guard let self = self else { return }
             if let info = event.element , var items = try? self.articles.value()  {
                 let newBatch = info.articles.map{ArticleViewData(data: $0)}

@@ -1,0 +1,30 @@
+{"status": "ok",
+   "totalResults": 12559,
+   "articles": [
+       {
+           "source": {
+               "id": "reuters",
+               "name": "Reuters"
+           },
+           "author": null,
+           "title": "Cryptocurrency finds itself in the sights of robust regulation - Reuters",
+           "description": "Depending upon who you talk to, cryptocurrency is all the rage, a Ponzi scheme or yet another energy-consuming scourge on the environment. (See tweets by Elon Musk from mid-May 2021, citing the environmental impact of bitcoin transactions for Tesla's decision…",
+           "url": "https://www.reuters.com/legal/transactional/cryptocurrency-finds-itself-sights-robust-regulation-2022-01-24/",
+           "urlToImage": "https://www.reuters.com/resizer/mDjQYBnitP_a_uKIL8Kh_Hz5Iww=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/OZIEFAHPYZNTBK2DBAT7THTKCQ.jpg",
+           "publishedAt": "2022-01-24T16:17:00Z",
+           "content": "January 24, 2022 - Depending upon who you talk to, cryptocurrency is all the rage, a Ponzi scheme or yet another energy-consuming scourge on the environment. (See tweets by Elon Musk from mid-May 202… [+10597 chars]"
+       },
+       {
+           "source": {
+               "id": "reuters",
+               "name": "Reuters"
+           },
+           "author": null,
+           "title": "BUZZ Crypto stocks slip as bitcoin briefly slides below $40000 - Reuters",
+           "description": "** Shares of cryptocurrency and blockchain-related firms fall after bitcoin  briefly slides below $40,000 to a 5-month low",
+           "url": "https://www.reuters.com/markets/asia/buzz-crypto-stocks-slip-bitcoin-briefly-slides-below-40000-2022-01-10/",
+           "urlToImage": "https://www.reuters.com/pf/resources/images/reuters/reuters-default.png?d=66",
+           "publishedAt": "2022-01-10T15:31:00Z",
+           "content": "** Shares of cryptocurrency and blockchain-related firms fall after bitcoin briefly slides below $40,000 to a 5-month low\r\n** The world's largest digital asset was last down 2.6% at $40,800 after fal… [+1132 chars]"
+       }]
+}

@@ -31,6 +31,8 @@ protocol ArticleListViewModelInternal{
     var writeToLocalDbTrigger : PublishSubject<[Article]> {get}
     
     var loadFromLocalDbTriggerWith : PublishSubject<ApiError>{get}
+    
+    var rawArticles : PublishSubject<SearchArticlesResponse> {get}
 }
 
 

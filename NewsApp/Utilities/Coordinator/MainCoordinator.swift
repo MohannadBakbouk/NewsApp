@@ -29,7 +29,7 @@ class MainCoordinator: Coordinator {
     }
     
     func showArticles(){
-        let main = ArticleListViewController()
+        let main = ArticleListViewController() //viewModel: ArticleListViewModel()
         main.coordinator = self
         pushViewControllerToStack(with: main)
     }

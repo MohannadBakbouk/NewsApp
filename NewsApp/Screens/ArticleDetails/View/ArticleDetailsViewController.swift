@@ -29,6 +29,11 @@ class ArticleDetailsViewController: UIViewController {
     
     var viewModel : ArticleDetailsViewModelProtocol!
     
+    convenience init(model : ArticleDetailsViewModelProtocol ){
+        self.init()
+        viewModel = model  
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUIBinding()

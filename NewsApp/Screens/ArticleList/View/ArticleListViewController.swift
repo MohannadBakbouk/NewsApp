@@ -31,9 +31,18 @@ class ArticleListViewController: UIViewController {
     
     var cellHeight = CGFloat(150)
     
+    init(viewModel: ArticleListViewModelProtocol = ArticleListViewModel()){
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    @available(* , unavailable)
+    required init?(coder aDecoder: NSCoder){
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel =  ArticleListViewModel()
+       // self.viewModel = ArticleListViewModel()
         configureUI()
         configureUIBinding()
         viewModel.loadArticles()

@@ -22,4 +22,6 @@ protocol ArticleDetailsViewModelOutput {
 protocol ArticleDetailsViewModelProtocol {
     var inputs : ArticleDetailsViewModelInput {get}
     var outputs : ArticleDetailsViewModelOutput {get}
+    
+    func subscribingToRateValue()
 }

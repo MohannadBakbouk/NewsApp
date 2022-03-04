@@ -23,3 +23,19 @@ class MockArticleService : ArticleServiceProtocol {
         }
     }
 }
+
+extension MockArticleService {
+    
+  class func loadFromJsonDirectly() -> [ArticleViewData]?{
+      
+        guard let data = try? Data(contentsOf: Bundle.main.url(forResource: "MockedArticleResponse", withExtension: "json")!) ,
+        
+        let response =  try? JSONDecoder().decode(SearchArticlesResponse.self, from: data)
+        else { return  nil}
+        
+        return response.articles.map{ArticleViewData(data: $0)}
+    
+        
+
+    }
+}

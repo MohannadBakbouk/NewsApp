@@ -12,10 +12,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     var coordinator : MainCoordinator?
+    
+    static var shared : SceneDelegate!
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        Self.shared = self
         
         let navController = UINavigationController()
         
